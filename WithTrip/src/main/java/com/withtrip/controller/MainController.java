@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-	@GetMapping("/index")
-	public String MainBoard() {
-		return "index.html";
+	@GetMapping("/")
+	public String DashBoard() {
+		return "index";
 	}
 	
-	@GetMapping("/plan")
-	public String tripplan() {
+	@GetMapping("/tripplan")
+	public String TripPlan() {
+		
 		return "tripplan";
 	}
 
