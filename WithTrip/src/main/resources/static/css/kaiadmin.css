@@ -541,7 +541,6 @@ body {
   border-top: 1px solid #eee;
   padding: 15px;
   background: #ffffff;
-  position: absolute;
   width: 100%; }
   .footer .container, .footer .container-fluid {
     display: flex;
@@ -3787,10 +3786,10 @@ label.error {
   .alert-primary [data-notify="icon"]:before {
     background: #1572E8; }
 
-.alert-secondary {
+/* .alert-secondary {
   border-left: 4px solid #6861CE; }
   .alert-secondary [data-notify="icon"]:before {
-    background: #6861CE; }
+    background: #6861CE; } */
 
 .alert-info {
   border-left: 4px solid #48ABF7; }
