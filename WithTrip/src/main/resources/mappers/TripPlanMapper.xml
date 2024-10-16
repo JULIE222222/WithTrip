@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.withtrip.mapper.TripPlanMapper">
+
+	<sql id = "TripPlanColumns">
+		plan_id
+		,plan_title
+		,destination
+		,start_date
+		,end_date
+		,plan_created
+		,plan_update
+	</sql>
+
+	<!--여행계획 삽입-->
+	<insert id="insertTripPlan" parameterType="TripPlanDTO">
+	INSERT INTO trip_plan (
+		<include refid = "TripPlanColumns" />
+		) VALUES (
+		#{plan_id}
+		,#{plan_title}
+		,#{destination}
+		,#{start_date}
+		,#{end_date}
+		,NOW()
+		,NULL
+		)
+	</insert>
+
+	<!--특정 여행계획 조회-->
+	<select id="selectTripPlan" parameterType="long" resultType="TripPlanDTO">
+		SELECT
+			<include refid = "TripPlanColumns" />
+		FROM
+			trip_plan
+		WHERE
+			plan_id = #{plan_id}
+	</select>
+	
+	<!--전체 여행계획목록 조회-->
+	<select id ="selectTripPlanList" parameterType="TripPlanDTO">
+		SELECT
+			<include refid="TripPlanColumns"/>
+		FROM
+			trip_plan
+		ORDER BY
+			plan_id ASC,
+			plan_created ASC
+	</select>
+	
+	<!--단일 세부계획 조회-->
+	<select id = "getDetailById" parameterType="long" resultType="TripDetailDTO">
+		SELECT 
+		FROM
+			trip_detail
+		WHERE
+			detail_id = #{detail_id}
+	</select>
+	
+	
+	
+	</mapper>
