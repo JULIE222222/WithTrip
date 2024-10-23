@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Avatars - Kaiadmin Bootstrap 5 Admin Dashboard</title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="icon" href=" img/kaiadmin/favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Baloo|Ubuntu" rel="stylesheet">
+
+    <!-- Fonts and icons -->
+    <script src=" js/plugin/webfont/webfont.min.js"></script>
+    <script>
+        WebFont.load({
+            google: {"families":["Public Sans:300,400,500,600,700"]},
+            custom: {"families":["Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: [' css/fonts.min.css']},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href=" css/bootstrap.min.css">
+    <link rel="stylesheet" href=" css/calender.css">
+    <link rel="stylesheet" href=" css/plugins.min.css">
+
+
+    <link rel="stylesheet" href=" css/kaiadmin.min.css">
+    <link rel="stylesheet" href=" css/tripdetail.css">
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href=" css/demo.css">
+
+
+
+</head>
+
+<body>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#FFFFFF" class="bi bi-send" viewBox="0 0 16 16" style="margin-right: 15px;">
+                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+                </svg>
+                <h2 style="color: #FFFFFF;">WithTrip</h2>
+            </div>
+            <!-- End Logo Header -->
+
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+            <div class="sidebar-content">
+                <ul class="nav nav-secondary">
+                    <li class="nav-item active">
+                        <a href="/" class="collapsed">
+                            <i class="fas fa-home"></i>
+                            <p>Dashboard</p>
+                        </a>
+                        <div class="collapse" id="dashboard"></div>
+                    </li>
+
+
+                    <li class="nav-section">
+							<span class="sidebar-mini-icon">
+								<i class="fa fa-ellipsis-h"></i>
+							</span>
+                        <h4 class="text-section">Components</h4>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a href="tripplan" class="d-flex align-items-center" style="text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suitcase-fill" viewBox="0 0 16 16" style="margin-right: 15px;">
+                                <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V3h1.5A1.5 1.5 0 0 1 13 4.5v9a1.5 1.5 0 0 1-1.004 1.416A1 1 0 1 1 10 15H6a1 1 0 1 1-1.997-.084A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3H6zM9 1H7v2h2zM6 5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0z" />
+                            </svg>
+                            <span>TripPlan</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#submenu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" style="margin-right: 15px;">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>
+                            <p>Log In</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#submenu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16" style="margin-right: 15px;">
+                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4" />
+                            </svg>
+                            <p>Register</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+        <div class="main-header">
+            <div class="main-header-logo">
+                <!-- Logo Header -->
+                <div class="logo-header" data-background-color="dark">
+                    <a href="/" class="logo"> <img src=" img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
+                    </a>
+                    <div class="nav-toggle">
+                        <button class="btn btn-toggle toggle-sidebar">
+                            <i class="gg-menu-right"></i>
+                        </button>
+                        <button class="btn btn-toggle sidenav-toggler">
+                            <i class="gg-menu-left"></i>
+                        </button>
+                    </div>
+                    <button class="topbar-toggler more">
+                        <i class="gg-more-vertical-alt"></i>
+                    </button>
+                </div>
+                <!-- End Logo Header -->
+            </div>
+
+            <!-- Navbar Header -->
+            <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+                    </nav>
+
+                    <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+
+                        <li class="nav-item topbar-icon dropdown hidden-caret"><a
+                                class="nav-link dropdown-toggle" href="#" id="notifDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"> <i class="fa fa-bell"></i> <span
+                                class="notification">4</span>
+                        </a>
+                            <ul class="dropdown-menu notif-box animated fadeIn"
+                                aria-labelledby="notifDropdown">
+                                <li>
+                                    <div class="dropdown-title">You have 4 new notification
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="notif-scroll scrollbar-outer">
+                                        <div class="notif-center">
+                                            <a href="#">
+                                                <div class="notif-icon notif-primary">
+                                                    <i class="fa fa-user-plus"></i>
+                                                </div>
+                                                <div class="notif-content">
+                                                    <span class="block"> New user registered </span> <span
+                                                        class="time">5 minutes ago</span>
+                                                </div>
+                                            </a> <a href="#">
+                                            <div class="notif-icon notif-success">
+                                                <i class="fa fa-comment"></i>
+                                            </div>
+                                            <div class="notif-content">
+                                                <span class="block"> Rahmad commented on Admin </span> <span
+                                                    class="time">12 minutes ago</span>
+                                            </div>
+                                        </a> <a href="#">
+                                            <div class="notif-img">
+                                                <img src=" img/profile2.jpg" alt="Img Profile" />
+                                            </div>
+                                            <div class="notif-content">
+                                                <span class="block"> Reza send messages to you </span> <span
+                                                    class="time">12 minutes ago</span>
+                                            </div>
+                                        </a> <a href="#">
+                                            <div class="notif-icon notif-danger">
+                                                <i class="fa fa-heart"></i>
+                                            </div>
+                                            <div class="notif-content">
+                                                <span class="block"> Farrah liked Admin </span> <span
+                                                    class="time">17 minutes ago</span>
+                                            </div>
+                                        </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a class="see-all" href="javascript:void(0);">See
+                                    all notifications<i class="fa fa-angle-right"></i>
+                                </a></li>
+                            </ul></li>
+                        <li class="nav-item topbar-icon dropdown hidden-caret"><a
+                                class="nav-link" data-bs-toggle="dropdown" href="#"
+                                aria-expanded="false"> <i class="fas fa-layer-group"></i>
+                        </a>
+                            <div class="dropdown-menu quick-actions animated fadeIn">
+                                <div class="quick-actions-header">
+                                    <span class="title mb-1">Quick Actions</span>
+                                </div>
+
+                            </div></li>
+
+                        <li class="nav-item topbar-user dropdown hidden-caret"><a
+                                class="dropdown-toggle profile-pic" data-bs-toggle="dropdown"
+                                href="#" aria-expanded="false">
+
+                            <img src=" img/profile.jpg" alt="..."
+                                 class="avatar-img rounded-circle" />
+                            <span class="profile-username"> <span class="op-7">Hi,</span>
+										<span class="fw-bold">Hizrian</span>
+								</span>
+                        </a>
+                            <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                <li>
+                                    <div class="user-box">
+                                        <div class="avatar-lg">
+                                            <img src=" img/profile.jpg" alt="image profile"
+                                                 class="avatar-img rounded" />
+                                        </div>
+                                        <div class="u-text">
+                                            <h4>Hizrian</h4>
+                                            <p class="text-muted">hello@example.com</p>
+                                            <a href="profile.html"
+                                               class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dropdown-divider"></div> <a class="dropdown-item"
+                                                                            href="#">My Profile</a> <a class="dropdown-item" href="#">My
+                                    Balance</a> <a class="dropdown-item" href="#">Inbox</a>
+                                    <div class="dropdown-divider"></div> <a class="dropdown-item"
+                                                                            href="#">Account Setting</a>
+                                    <div class="dropdown-divider"></div> <a class="dropdown-item"
+                                                                            href="#">Logout</a>
+                                </li>
+
+                            </ul></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+        </div>
+
+        <div class="container">
+            <div class="page-inner">
+                <div class="page-header">
+                    <h3 class="fw-bold mb-3">TripDetail</h3>
+                    <ul class="breadcrumbs mb-3">
+                        <li class="nav-home">
+                            <a href="/">
+                                <i class="icon-home"></i>
+                            </a>
+                        </li>
+                        <li class="separator">
+                            <i class="icon-arrow-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tripplan">TripPlan</a>
+                        </li>
+                        <li class="separator">
+                            <i class="icon-arrow-right"></i>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tripDetail">TripDetail</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">여행 제목 띄우기</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">여행지 정보 띄우기</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">세부일정</h4>
+                            </div>
+                            <div class="card-body" style="display: flex; flex-direction: column; height: 900px;">
+                                <!-- 일정 테이블 -->
+                              <div class="tripdetail" style="flex: 1;">
+                                    <div class="container" >
+                                        <table class="table1">
+                                            <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th colspan="3">DAY 1</th>
+                                                <th colspan="3">DAY 2</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>10:00 AM - 11:00 PM</td>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                            </tr>
+                                            <tr>
+                                                <td>10:00 AM - 11:00 PM</td>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                            </tr>
+                                            <tr>
+                                                <td>10:00 AM - 11:00 PM</td>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                            </tr>
+                                            <tr>
+                                                <td>11:00 AM - 12:00 AM</td>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                            </tr>
+                                            <tr>
+                                                <td>12:00 AM - 1:00 PM</td>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- 버튼 영역 -->
+                                <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                                    <input type="submit" value="일정 저장" style="width: 100px; margin-right: 10px;" />
+                                    <input type="submit" value="지도로 보기" style="width: 100px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer">
+                    <div class="container-fluid d-flex justify-content-between">
+                        <nav class="pull-left">
+                            <ul class="nav">
+                                <li class="nav-item"><a class="nav-link"
+                                                        href="http://www.themekita.com"> ThemeKita </a></li>
+                            </ul>
+                        </nav>
+                        <div class="copyright">
+                            2024, made with <i class="fa fa-heart heart text-danger"></i> by <a
+                                href="http://www.themekita.com">ThemeKita</a>
+                        </div>
+                        <div>
+                            Distributed by <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+        <!--   Core JS Files   -->
+        <script src=" js/core/jquery-3.7.1.min.js"></script>
+        <script src=" js/core/popper.min.js"></script>
+        <script src=" js/core/bootstrap.min.js"></script>
+
+        <!-- jQuery Scrollbar -->
+        <script src=" js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+        <!-- Moment JS -->
+        <script src=" js/plugin/moment/moment.min.js"></script>
+
+        <!-- Chart JS -->
+        <script src=" js/plugin/chart.js/chart.min.js"></script>
+        <script src=" js/calender.js"></script>
+
+        <!-- jQuery Sparkline -->
+        <script src=" js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+        <!-- Chart Circle -->
+        <script src=" js/plugin/chart-circle/circles.min.js"></script>
+
+        <!-- Datatables -->
+        <script src=" js/plugin/datatables/datatables.min.js"></script>
+
+        <!-- Bootstrap Notify -->
+        <script src=" js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+        <!-- jQuery Vector Maps -->
+        <script src=" js/plugin/jsvectormap/jsvectormap.min.js"></script>
+        <script src=" js/plugin/jsvectormap/world.js"></script>
+
+        <!-- Sweet Alert -->
+        <script src=" js/plugin/sweetalert/sweetalert.min.js"></script>
+
+        <!-- Kaiadmin JS -->
+        <script src=" js/kaiadmin.min.js"></script>
+
+        <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+        <script src=" js/setting-demo2.js"></script>
+
+
+
+</body>
+</html>

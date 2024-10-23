@@ -17,4 +17,10 @@ public class MainController {
 		return "tripplan";
 	}
 
+	@GetMapping("/tripdetail")
+	public String TripDetail() {
+
+		return "tripdetail";
+	}
+
 }

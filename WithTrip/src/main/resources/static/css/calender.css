@@ -234,7 +234,7 @@ textarea.formError, input.formError {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh; /* 화면 전체 높이 사용 */
+  height: 850px; /* 화면 전체 높이 사용 */
 }
 
 #calender-wrapper {
@@ -243,7 +243,7 @@ textarea.formError, input.formError {
   border-radius: 10px;
   overflow: hidden;
   width: 1000px; /* 고정된 너비 */
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 
