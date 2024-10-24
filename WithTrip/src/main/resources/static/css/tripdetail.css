@@ -13,14 +13,20 @@
     }
     .tripdetail .table1 {
       margin-bottom: 70px;
+      margin-left: -200px;
     }
     .tripdetail th, td {
       border: 1px solid #ddd;
-      padding: 30px;
+      padding: 20px;
       text-align: center;
     }
     .tripdetail .colspan {
       background-color: rgba(212, 150, 150, 0.4);
     }
+
+     .tripdetail .card .card-body{
+     height: 800px;
+    padding-left: 195px;
+     }
 
 
