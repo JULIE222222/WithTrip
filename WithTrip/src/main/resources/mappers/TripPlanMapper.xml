@@ -48,16 +48,5 @@
 			plan_id ASC,
 			plan_created ASC
 	</select>
-	
-	<!--단일 세부계획 조회-->
-	<select id = "getDetailById" parameterType="long" resultType="TripDetailDTO">
-		SELECT 
-		FROM
-			trip_detail
-		WHERE
-			detail_id = #{detail_id}
-	</select>
-	
-	
-	
+
 	</mapper>

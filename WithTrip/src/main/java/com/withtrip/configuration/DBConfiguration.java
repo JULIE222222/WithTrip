@@ -1,4 +1,4 @@
-package com.withtrip.Configuration;
+package com.withtrip.configuration;
 
 import javax.sql.DataSource;
 

@@ -3,10 +3,14 @@ package com.withtrip.domain;
 import java.time.LocalDate;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class TripPlanDTO {
 	
 	private Long plan_id;

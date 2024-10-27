@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Avatars - Kaiadmin Bootstrap 5 Admin Dashboard</title>
@@ -298,16 +298,16 @@
 														<p>End Date :</p>
 													</div>
 													<div class="flex row center-vh">
-														<p id="startdate"></p>
-														<p id="enddate"></p>
+														<input type="date" th:field="*{start_date}" name="startdate" id="startdate"></inputp>
+														<input type="date" th:field="*{end_date}" name="enddate" id="enddate"></inputp>
+
 													</div>
 												</div>
 												<div id="calender-title" class="disable-select flex row center-v around">
 													<div id="left" class="flex row center-vh">
 														<span><</span>
 													</div>
-													
-										
+
 													<p class="flex row center-vh"></p>
 													<div id="right" class="flex row center-vh">
 														<span>></span>
