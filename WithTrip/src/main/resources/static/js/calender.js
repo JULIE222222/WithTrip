@@ -127,35 +127,44 @@ function displayCalender() {
 	checkBookings();
 }
 function monthClick(e) {
-	if ($(e).hasClass("clickable")) {
-		clickedDays += 1;
+            if ($(e).hasClass("clickable")) {
+                // 두 날짜가 이미 선택되었을 때, 새로운 클릭으로 초기화 후 첫 날짜 선택
+                if (clickedDays >= 2) {
+                    clearCalendar();  // 선택한 날짜 초기화
+                    clickedDays = 0;  // 클릭 횟수 초기화
+                }
 
-		if (clickedDays == 1) {
-			$(e).toggleClass("clicked");
-			startDateIndex = parseInt($(e).attr('id').split('-')[1]);
-			startDate = new Date(currentYear, currentMonth, startDateIndex);
-		}
-		if (clickedDays > 1) {
-			endDateIndex = parseInt($(e).attr('id').split('-')[1]);
-			endDate = new Date(currentYear, currentMonth, endDateIndex);
-		}
-		if (endDate > startDate) {
-			var clicked = $(".clicked");
-			$(clicked).not(clicked[0]).removeClass("clicked");
-			$(e).toggleClass("clicked");
+                clickedDays += 1;  // 클릭 횟수 증가
 
-			dateArray = getDates(startDate, endDate);
-			dateArray = formatDates(dateArray)
-			selectedDates = dateArray;
+                if (clickedDays === 1) {
+                    $(e).toggleClass("clicked");
+                    const startDateIndex = parseInt($(e).attr('id').split('-')[1]);
+                    startDate = new Date(currentYear, currentMonth, startDateIndex);
+                }
 
-			for (var i = 0; i < dateArray.length; i++) {
-				$("#" + dateArray[i]).addClass("clicked");
-			}
-		}
-		$("#startdate").html(startDate.toString().split(' ').slice(0, 4).join(' '));
-		$("#enddate").html(endDate.toString().split(' ').slice(0, 4).join(' '));
-	}
-}
+                if (clickedDays > 1) {
+                    const endDateIndex = parseInt($(e).attr('id').split('-')[1]);
+                    endDate = new Date(currentYear, currentMonth, endDateIndex);
+                }
+
+                if (endDate > startDate) {
+                    const clicked = $(".clicked");
+                    $(clicked).not(clicked[0]).removeClass("clicked");
+                    $(e).toggleClass("clicked");
+
+                    // 날짜 범위 계산 및 표시
+                    const dateArray = getDates(startDate, endDate);
+                    for (let i = 0; i < dateArray.length; i++) {
+                        $("#" + dateArray[i].getDate()).addClass("clicked");
+                    }
+
+                    // 선택된 날짜를 HTML에 표시
+                    $("#startDate").text(startDate.toLocaleDateString());
+                    $("#endDate").text(endDate.toLocaleDateString());
+                }
+            }
+        }
+
 function firstDayOffset(date) {
 	return new Date(currentYear, currentMonth, 1).getDay();
 }
@@ -213,7 +222,7 @@ $("#clear").on("click", function() {
 	clearCalender();
 	clearBooking();
 });
-$("#make-booking").on("click", function() {
+$("#make-booking").on("click", function(e) {
 	if (selectedDates != null && selectedDates.length > 0) {
 		bookingSteps += 1;
 
@@ -232,3 +241,4 @@ $("#make-booking").on("click", function() {
 		}
 	}
 });
+

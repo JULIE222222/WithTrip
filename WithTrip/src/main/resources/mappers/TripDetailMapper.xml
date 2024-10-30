@@ -23,7 +23,7 @@
         ,#{plan_id}
         ,#{time_id}
         ,#{detail_date}
-        ,#{acticity}
+        ,#{activity}
         ,#{location}
         ,NOW()
         ,NULL

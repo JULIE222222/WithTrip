@@ -152,7 +152,7 @@
 	margin-top: 20px;
 	width: 720px;
 	height: 60px;
-	background: 	#B0C4DE;
+	background: #B0C4DE;
 	border: 6px solid #B0C4DE;
 	border-radius: 10px;
 	transition: .4s;
@@ -274,7 +274,7 @@ textarea.formError, input.formError {
 }
 
 .month-selector {
-	width: 100%;
+	width: 145%;
 	height: 100%;
 	transition: .4s;
 	position: relative;

@@ -29,8 +29,8 @@
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href=" css/demo.css">
-	
-	
+
+
 </head>
 
 <body>
@@ -38,7 +38,7 @@
 		<!-- Sidebar -->
 		<div class="sidebar" data-background-color="dark">
 			<div class="sidebar-logo">
-			
+
 				<!-- Logo Header -->
 				<div class="logo-header" data-background-color="dark">
 					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#FFFFFF" class="bi bi-send" viewBox="0 0 16 16" style="margin-right: 15px;">
@@ -47,7 +47,7 @@
 					<h2 style="color: #FFFFFF;">WithTrip</h2>
 				</div>
 				<!-- End Logo Header -->
-				
+
 			</div>
 			<div class="sidebar-wrapper scrollbar scrollbar-inner">
 				<div class="sidebar-content">
@@ -56,11 +56,11 @@
 							  <a href="/" class="collapsed">
 								<i class="fas fa-home"></i>
 									<p>Dashboard</p>
-							</a>	
+							</a>
 						<div class="collapse" id="dashboard"></div>
 						</li>
-						
-						
+
+
 						<li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
@@ -131,7 +131,7 @@
 						</nav>
 
 						<ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
-							
+
 							<li class="nav-item topbar-icon dropdown hidden-caret"><a
 								class="nav-link dropdown-toggle" href="#" id="notifDropdown"
 								role="button" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -201,7 +201,7 @@
 							<li class="nav-item topbar-user dropdown hidden-caret"><a
 								class="dropdown-toggle profile-pic" data-bs-toggle="dropdown"
 								href="#" aria-expanded="false">
-									
+
 										<img src=" img/profile.jpg" alt="..."
 											class="avatar-img rounded-circle" />
 									 <span class="profile-username"> <span class="op-7">Hi,</span>
@@ -232,14 +232,14 @@
 											<div class="dropdown-divider"></div> <a class="dropdown-item"
 											href="#">Logout</a>
 										</li>
-								
+
 								</ul></li>
 						</ul>
 					</div>
 				</nav>
 				<!-- End Navbar -->
 				</div>
-			
+
 			<div class="container">
 				<div class="page-inner">
 					<div class="page-header">
@@ -260,13 +260,14 @@
 						</ul>
 					</div>
 					<div class="row">
+						<form action="/tripplan" method="post">
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
 									<h4 class="card-title">Title</h4>
 								</div>
 								<div class="card-body">
-									<input type="text" , placeholder="여행 타이틀을 입력하세요.">
+									<input type="text" name="planTitle" placeholder="여행 타이틀을 입력하세요.">
 								</div>
 							</div>
 						</div>
@@ -274,10 +275,9 @@
 							<div class="card">
 								<div class="card-header">
 									<h4 class="card-title">Travel Destination</h4>
-
 								</div>
 								<div class="card-body">
-									<input type="text" , placeholder="여행지를 입력하세요.">
+									<input type="text" name="destination" placeholder="여행지를 입력하세요.">
 								</div>
 							</div>
 						</div>
@@ -298,9 +298,8 @@
 														<p>End Date :</p>
 													</div>
 													<div class="flex row center-vh">
-														<input type="date" th:field="*{start_date}" name="startdate" id="startdate"></inputp>
-														<input type="date" th:field="*{end_date}" name="enddate" id="enddate"></inputp>
-
+														<p id="startDate"></p>
+														<p id="endDate"></p>
 													</div>
 												</div>
 												<div id="calender-title" class="disable-select flex row center-v around">
@@ -327,15 +326,16 @@
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
 								<div style="display: flex; justify-content: flex-end;">
 									<input type="submit" href="tripdetail" value="다음으로" style="width: 100px;" />
 								</div>
+								</form>
 							</div>
 						</div>
-						
-						
+
+
 					</div>
 
 					<footer class="footer">
@@ -357,18 +357,18 @@
 			</footer>
 		</div>
 	</div>
-	
-	
+
+
 	<!--   Core JS Files   -->
 	<script src=" js/core/jquery-3.7.1.min.js"></script>
 	<script src=" js/core/popper.min.js"></script>
 	<script src=" js/core/bootstrap.min.js"></script>
-	
+
 	<!-- jQuery Scrollbar -->
 	<script src=" js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 	<!-- Moment JS -->
 	<script src=" js/plugin/moment/moment.min.js"></script>
-	
+
 	<!-- Chart JS -->
 	<script src=" js/plugin/chart.js/chart.min.js"></script>
 	<script src=" js/calender.js"></script>
@@ -384,7 +384,7 @@
 
 	<!-- Bootstrap Notify -->
 	<script src=" js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-	
+
 	<!-- jQuery Vector Maps -->
 	<script src=" js/plugin/jsvectormap/jsvectormap.min.js"></script>
 	<script src=" js/plugin/jsvectormap/world.js"></script>
@@ -397,8 +397,6 @@
 
 	<!-- Kaiadmin DEMO methods, don't include it in your project! -->
 	<script src=" js/setting-demo2.js"></script>
-	
-	
 
 </body>
 </html>

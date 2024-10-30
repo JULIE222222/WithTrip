@@ -9,17 +9,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @RequiredArgsConstructor
+
 public class TripPlanDTO {
 	
-	private Long plan_id;
-	private String user_email;
-	private String user_name;
-	private String user_pwd;
-	private LocalDate start_date;
-	private LocalDate end_date;
-	private LocalDate plan_created;
-	private LocalDate plan_update;
+	private Long planId;
+	private String planTitle;
+	private String destination;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	private LocalDate planCreated;
+	private LocalDate planUpdate;
 
 }
