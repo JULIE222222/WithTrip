@@ -15,21 +15,16 @@ import java.util.List;
 public class TripPlanService {
 
     private final TripPlanMapper tripPlanMapper;
-
-
     // 여행계획 저장
     public void saveTripPlan(TripPlanDTO tripPlanDTO){
         tripPlanMapper.saveTripPlan(tripPlanDTO);
     }
-
     // 모든 여행계획 조회
     public List<TripPlanDTO> getAllTripPlans(){
      return tripPlanMapper.getAllTripPlans(); //매퍼 메소드 호출
     }
-
     // 여행계획 조회
-    TripPlanDTO getTripPlan(long plan_id){
-        return tripPlanMapper.getTripPlan(plan_id); //매퍼 메소드 호출
+    TripPlanDTO getTripPlan(long planId){
+        return tripPlanMapper.getTripPlan(planId); //매퍼 메소드 호출
     }
-
 }

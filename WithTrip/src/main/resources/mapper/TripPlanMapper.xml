@@ -5,8 +5,7 @@
 
 	<!-- 여행 계획 컬럼 목록 정의 -->
 	<sql id = "TripPlanColumns">
-		plan_id
-		,plan_title
+		plan_title
 		,destination
 		,start_date
 		,end_date
@@ -15,22 +14,23 @@
 	</sql>
 
 	<!--여행계획 삽입-->
-	<insert id="saveTripPlan" parameterType="TripPlanDTO">
-	INSERT INTO trip_plan (
-		<include refid = "TripPlanColumns" />
+	<insert id="saveTripPlan" parameterType="com.withtrip.domain.TripPlanDTO">
+		INSERT INTO trip_plan (
+		user_id,
+		<include refid="TripPlanColumns" />
 		) VALUES (
-		#{plan_id}
-		,#{plan_title}
-		,#{destination}
-		,#{start_date}
-		,#{end_date}
-		,NOW()
-		,NULL
+		#{user_id},
+		#{plan_title},
+		#{destination},
+		#{start_date},
+		#{end_date},
+		NOW(),
+		NOW()
 		)
 	</insert>
 
 	<!--특정 여행계획 조회-->
-	<select id="getTripPlan" parameterType="long" resultType="TripPlanDTO">
+	<select id="getTripPlan" parameterType="long" resultType="com.withtrip.domain.TripPlanDTO">
 		SELECT
 			<include refid = "TripPlanColumns" />
 		FROM
@@ -40,7 +40,7 @@
 	</select>
 	
 	<!--전체 여행계획목록 조회-->
-	<select id ="getAllTripPlans" parameterType="TripPlanDTO">
+	<select id ="getAllTripPlans" parameterType="com.withtrip.domain.TripPlanDTO">
 		SELECT
 			<include refid="TripPlanColumns"/>
 		FROM
@@ -49,5 +49,4 @@
 			plan_id ASC,
 			plan_created ASC
 	</select>
-
 	</mapper>

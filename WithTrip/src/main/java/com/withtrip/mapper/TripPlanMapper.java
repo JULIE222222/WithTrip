@@ -18,7 +18,5 @@ public interface TripPlanMapper {
     List<TripPlanDTO> getAllTripPlans();
 
 	// 여행계획 조회
-	TripPlanDTO getTripPlan(long plan_id);
-
-
+	TripPlanDTO getTripPlan(long planId);
 }
