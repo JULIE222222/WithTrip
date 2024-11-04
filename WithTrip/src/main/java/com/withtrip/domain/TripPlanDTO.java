@@ -20,5 +20,5 @@ public class TripPlanDTO {
 	private LocalDate endDate;
 	private LocalDate planCreated;
 	private LocalDate planUpdate;
-
+	private Long userId;
 }

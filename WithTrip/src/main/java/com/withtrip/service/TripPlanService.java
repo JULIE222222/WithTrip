@@ -3,7 +3,6 @@ package com.withtrip.service;
 import com.withtrip.domain.TripPlanDTO;
 import com.withtrip.mapper.TripPlanMapper;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
