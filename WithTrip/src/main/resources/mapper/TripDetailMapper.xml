@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.withtrip.mapper.TripPlanMapper">
+<mapper namespace = "com.withtrip.mapper.TripDetailMapper">
 
     <sql id = "TripPlanColumns">
         detail_id
@@ -17,7 +17,7 @@
    <!--여행 세부일정 삽입 -->
     <insert id ="insertTripDetail" parameterType="TripDetailDTO">
         INSERT INTO trip_detail(
-        <include refid ="TripPlanColimns" />
+        <include refid ="TripPlanColumns" />
         ) VALUES (
         #{detail_id}
         ,#{plan_id}
@@ -39,14 +39,14 @@
     </select>
 
     <!--세부계획 조회-->
-    <select id = "getTripDetail" parameterType="long" resultType="TripDetailDTO">
+<!--    <select id = "getTripDetail" parameterType="long" resultType="TripDetailDTO">
         SELECT
             <include refid ="TripDetailColumns"/>
         FROM
             trip_detail
         ORDER BY
             detail_id ASC
-    </select>
+    </select>-->
 
 
 </mapper>
