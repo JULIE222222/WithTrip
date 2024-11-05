@@ -292,65 +292,23 @@
                                 <!-- 일정 테이블 -->
 
                                     <div class="container" >
-                                        <table class="table1">
+                                        <table class="table1" name="details" id="details">
                                             <thead>
+                                            <input type='button' value='일정 추가' onclick='addRow()'  style="width: 110px; margin-left: -200px;" />
                                             <tr>
-                                                <th></th>
-                                                <th colspan="3">DAY 1</th>
-                                                <th colspan="3">DAY 2</th>
+                                                <th colspan="5">DAY 1</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
                                                 <td>Time</td>
-
-                                                <th>일정</th><th>내용</th><th>비용</th>
-                                                <th>일정</th><th>내용</th><th>비용</th>
+                                                <th>일정</th><th>내용</th><th>비용</th><!--<th style="width:550px">지도</th>-->
                                             </tr>
                                             <tr>
-                                                <td>10:00 AM - 11:00 PM</td>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
-                                            </tr>
-                                            <tr>
-                                                <td>10:00 AM - 11:00 PM</td>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
-                                            </tr>
-                                            <tr>
-                                                <td>10:00 AM - 11:00 PM</td>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
-                                            </tr>
-                                            <tr>
-                                                <td>11:00 AM - 12:00 AM</td>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
-                                            </tr>
-                                            <tr>
-                                                <td>12:00 AM - 1:00 PM</td>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" , placeholder="여행 비용을 입력하세요."></th>
+                                                <td><input type="time" id="detailTime"></td>
+                                                <th><input type="text" id="location" placeholder="여행 일정을 입력하세요."></th>
+                                                <th><input type="text" id="activity" placeholder="여행 내용을 입력하세요."></th>
+                                                <th><input type="text" id="price" placeholder="여행 비용을 입력하세요."></th>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -370,13 +328,11 @@
                     <div class="container-fluid d-flex justify-content-between">
                         <nav class="pull-left">
                             <ul class="nav">
-                                <li class="nav-item"><a class="nav-link"
-                                                        href="http://www.themekita.com"> ThemeKita </a></li>
+                                <li class="nav-item"><a class="nav-link" href="http://www.themekita.com"> ThemeKita </a></li>
                             </ul>
                         </nav>
                         <div class="copyright">
-                            2024, made with <i class="fa fa-heart heart text-danger"></i> by <a
-                                href="http://www.themekita.com">ThemeKita</a>
+                            2024, made with <i class="fa fa-heart heart text-danger"></i> by <a href="http://www.themekita.com">ThemeKita</a>
                         </div>
                         <div>
                             Distributed by <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
@@ -425,6 +381,8 @@
 
         <!-- Kaiadmin DEMO methods, don't include it in your project! -->
         <script src=" js/setting-demo2.js"></script>
+
+        <script src=" js/tripdetail.js"></script>
 
 
 

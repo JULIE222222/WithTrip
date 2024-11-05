@@ -37,16 +37,15 @@ public class DBConfiguration {
 	public SqlSessionFactory sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		factoryBean.setDataSource(dataSource());
-		factoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/**/*Mapper.xml"));
+		factoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/*Mapper.xml"));
 		factoryBean.setTypeAliasesPackage("com.withtrip.domain");
 		factoryBean.setConfiguration(mybatisConfig());  // MyBatis 설정 적용
 		return factoryBean.getObject();
 	}
 
 	@Bean
-	public SqlSessionTemplate sqlSessionTemplate() throws Exception {
-		SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory());
-		return template; // SqlSessionTemplate 객체를 반환
+	public SqlSessionTemplate sqlSession() throws Exception {
+		return new SqlSessionTemplate(sqlSessionFactory()); // SqlSessionTemplate 객체를 반환
 	}
 
 	@Bean
