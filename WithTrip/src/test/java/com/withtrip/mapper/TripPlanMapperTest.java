@@ -1,10 +1,13 @@
 package com.withtrip.mapper;
 
+import ch.qos.logback.core.model.Model;
 import com.withtrip.domain.TripPlanDTO;
+import com.withtrip.service.TripPlanService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 
@@ -28,11 +31,12 @@ class TripPlanMapperTest {
         params.setEndDate(LocalDate.of(2024, 11, 26));
 
         // TripPlanMapper를 사용하여 데이터베이스에 삽입
-        int result = tripPlanMapper.saveTripPlan(params); // 실제 메서드 호출
+       Long result = tripPlanMapper.saveTripPlan(params); // 실제 메서드 호출
 
         // 결과 확인 (예: 성공적으로 1개의 레코드가 삽입되었는지 확인)
         assertEquals(1, result, "레코드 삽입에 실패했습니다.");
     }
+
 
 
 }

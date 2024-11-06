@@ -10,7 +10,7 @@ import com.withtrip.domain.TripPlanDTO;
 public interface TripPlanMapper {
 
 	// 여행계획 저장
-	int saveTripPlan(TripPlanDTO tripPlanDTO);
+	Long saveTripPlan(TripPlanDTO tripPlanDTO);
 
 	// 모든 여행계획 조회
     List<TripPlanDTO> getAllTripPlans();

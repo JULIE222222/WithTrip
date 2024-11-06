@@ -14,7 +14,7 @@
 	</sql>
 
 	<!--여행계획 삽입-->
-	<insert id="saveTripPlan" parameterType="com.withtrip.domain.TripPlanDTO">
+	<insert id="saveTripPlan" parameterType="com.withtrip.domain.TripPlanDTO"  useGeneratedKeys="true" keyProperty="planId">
 		INSERT INTO trip_plan (
 		user_id,
 		plan_title,

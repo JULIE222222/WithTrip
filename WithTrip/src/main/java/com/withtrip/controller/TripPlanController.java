@@ -1,12 +1,15 @@
 package com.withtrip.controller;
 
+import jakarta.servlet.http.HttpSession;
+import org.springframework.ui.Model;
 import com.withtrip.domain.TripPlanDTO;
 import com.withtrip.service.TripPlanService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.time.LocalDate;
 
 @Controller
@@ -16,14 +19,14 @@ public class TripPlanController {
         private final TripPlanService tripPlanService;
 
         @PostMapping("/tripplan")
-        public String saveTripPlan(@ModelAttribute TripPlanDTO tripPlanDTO) {
-                // 현재 날짜로 생성/수정 날짜 설정
-                tripPlanDTO.setPlanCreated(LocalDate.now());
-                tripPlanDTO.setPlanUpdate(LocalDate.now());
-                // 서비스 계층을 통해 데이터 저장
-                tripPlanService.saveTripPlan(tripPlanDTO);
-                // 저장 후 상세 페이지로 리다이렉트
-                return "redirect:/tripdetail";
+        public String saveTripPlan(TripPlanDTO tripPlanDTO, RedirectAttributes redirectAttributes) {
+                // 여행 계획을 저장하고 생성된 planId 반환
+                Long planId = tripPlanService.saveTripPlan(tripPlanDTO);
+
+                // 리다이렉트 시 planId를 파라미터로 전달
+                redirectAttributes.addAttribute("planId", planId);
+
+                return "redirect:/tripPlanInfo";  // 다음 페이지로 리다이렉트
         }
 
         // tripdetail 페이지로 이동
@@ -32,4 +35,20 @@ public class TripPlanController {
                 return "tripdetail"; // 상세 페이지 반환
         }
 
-}
+
+        @GetMapping("/tripDetail")
+        public String getTripDetail(HttpSession session, Model model) {
+                Long planId = (Long) session.getAttribute("tripPlanId");
+                if (planId != null) {
+                        TripPlanDTO tripPlan = tripPlanService.getTripPlan(planId);
+                        model.addAttribute("planTitle", tripPlan.getPlanTitle());
+                        model.addAttribute("destination", tripPlan.getDestination());
+                        model.addAttribute("planId", tripPlan.getPlanId());
+                } else {
+                        // planId가 없을 경우 처리 (예: 오류 메시지 표시)
+                }
+                return "tripDetail";
+        }
+        }
+
+
