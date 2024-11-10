@@ -2,40 +2,77 @@ package com.withtrip.service;
 
 import com.withtrip.domain.TripPlanDTO;
 import com.withtrip.mapper.TripPlanMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import java.util.ArrayList;
+import java.util.List;
 
-@SpringBootTest
-@Transactional
-public class TripPlanServiceTest {
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.*;
 
-    @Autowired
+class TripPlanServiceTest {
+
+    @Mock
     private TripPlanMapper tripPlanMapper;
 
-    @Autowired
+    @InjectMocks
     private TripPlanService tripPlanService;
 
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
     @Test
-    public void testOfgetTripPlan() {
-        // Arrange: 테스트용 planId 및 예상되는 TripPlanDTO 객체 생성
-        Long planId = 1L;
-        TripPlanDTO expectedTripPlan = new TripPlanDTO();
-        expectedTripPlan.setPlanId(planId);
-        // 필요한 다른 속성도 설정
+    void testSaveTripPlan() {
+        // given
+        TripPlanDTO tripPlanDTO = new TripPlanDTO();
+        tripPlanDTO.setPlanId(1L);
 
-        // When: TripPlanMapper의 getTripPlan 메서드 호출 시 예상 객체 반환 설정
-        when(tripPlanMapper.getTripPlan(planId)).thenReturn(expectedTripPlan);
+        // when
+        when(tripPlanMapper.saveTripPlan(any(TripPlanDTO.class))).thenReturn(1L);
+        Long savedPlanId = tripPlanService.saveTripPlan(tripPlanDTO);
 
-        // Act: TripPlanService의 getTripPlan 메서드를 호출하여 실제 결과 얻기
-        TripPlanDTO result = tripPlanService.getTripPlan(planId);
+        // then
+        assertEquals(1L, savedPlanId);
+        verify(tripPlanMapper, times(1)).saveTripPlan(tripPlanDTO);
+    }
 
-        // Assert: 반환된 결과가 예상한 값과 일치하는지 확인
-        assertEquals(expectedTripPlan.getPlanId(), result.getPlanId());
-        // 필요한 다른 필드들도 assert로 확인 가능
+    @Test
+    void testGetAllTripPlans() {
+        // given
+        List<TripPlanDTO> tripPlans = new ArrayList<>();
+        tripPlans.add(new TripPlanDTO());
+
+        // when
+        when(tripPlanMapper.getAllTripPlans()).thenReturn(tripPlans);
+        List<TripPlanDTO> result = tripPlanService.getAllTripPlans();
+
+        // then
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        verify(tripPlanMapper, times(1)).getAllTripPlans();
+    }
+
+    @Test
+    void testGetTripPlan() {
+        // given
+        TripPlanDTO tripPlanDTO = new TripPlanDTO();
+        tripPlanDTO.setPlanId(1L);
+
+        // when
+        when(tripPlanMapper.getTripPlan(anyLong())).thenReturn(tripPlanDTO);
+        TripPlanDTO result = tripPlanService.getTripPlan(1L);
+
+        // then
+        assertNotNull(result);
+        assertEquals(1L, result.getPlanId());
+        verify(tripPlanMapper, times(1)).getTripPlan(1L);
     }
 }
