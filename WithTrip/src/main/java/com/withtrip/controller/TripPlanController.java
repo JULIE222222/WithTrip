@@ -7,7 +7,9 @@ import com.withtrip.service.TripPlanService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
@@ -38,16 +40,25 @@ public class TripPlanController {
 
         @GetMapping("/tripDetail")
         public String getTripDetail(HttpSession session, Model model) {
-                Long planId = (Long) session.getAttribute("tripPlanId");
+                Long planId = (Long) session.getAttribute("planId");
                 if (planId != null) {
                         TripPlanDTO tripPlan = tripPlanService.getTripPlan(planId);
                         model.addAttribute("planTitle", tripPlan.getPlanTitle());
                         model.addAttribute("destination", tripPlan.getDestination());
-                        model.addAttribute("planId", tripPlan.getPlanId());
+                        model.addAttribute("tripPlanId", tripPlan.getPlanId());
                 } else {
                         // planId가 없을 경우 처리 (예: 오류 메시지 표시)
                 }
                 return "tripDetail";
+        }
+
+        // TripPlanController.java
+        @GetMapping("/tripplan/{id}")
+        public String getTripPlan(@PathVariable Long id, Model model) {
+                TripPlanDTO tripPlan = tripPlanService.getTripPlan(id);
+                model.addAttribute("startDate", tripPlan.getStartDate());
+                model.addAttribute("endDate", tripPlan.getEndDate());
+                return "tripplan";
         }
         }
 

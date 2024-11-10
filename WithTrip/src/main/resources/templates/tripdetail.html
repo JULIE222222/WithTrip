@@ -266,6 +266,17 @@
 
                     </ul>
                 </div>
+
+                <!-- Hidden Data Fields -->
+               <!-- <div class="row">
+                    <div class="col-md-6" hidden>
+                        <span id="starttime" th:text="${tripplan.starttime}"></span>
+                    </div>
+                    <div class="col-md-6" hidden>
+                        <span id="endtime" th:text="${tripplan.endtime}"></span>
+                    </div>
+                </div> -->
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
@@ -287,33 +298,32 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">세부일정</h4>
-                            </div>
-                            <div class="card-body" style="display: flex; flex-direction: column;">
-                                <!-- 일정 테이블 -->
+                           </div>
 
-                                    <div class="container" >
-                                        <table class="table1" name="details" id="details">
-                                            <thead>
-                                            <input type='button' value='일정 추가' onclick='addRow()'  style="width: 110px; margin-left: -200px;" />
-                                            <tr>
-                                                <th colspan="5">DAY 1</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>Time</td>
-                                                <th>일정</th><th>내용</th><th>비용</th><!--<th style="width:550px">지도</th>-->
-                                            </tr>
-                                            <tr>
-                                                <td><input type="time" id="detailTime"></td>
-                                                <th><input type="text" id="location" placeholder="여행 일정을 입력하세요."></th>
-                                                <th><input type="text" id="activity" placeholder="여행 내용을 입력하세요."></th>
-                                                <th><input type="text" id="price" placeholder="여행 비용을 입력하세요."></th>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+
+                            <div class="card-body" style="display: flex; flex-direction: column;">
+                                <!-- 여행 일정 -->
+                                <div class="container">
+                                    <!-- 여행 계획의 시작일과 종료일 -->
+                                    <table class="table1" name="details" id="details">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="5">여행 일정</th>
+                                        </tr>
+                                        <tr>
+                                            <th>날짜</th>
+                                            <th>Time</th>
+                                            <th>일정</th>
+                                            <th>내용</th>
+                                            <th>비용</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="trip-plan-body">
+                                        <!-- 동적으로 생성된 DAY별 일정 테이블 -->
+                                        </tbody>
+                                    </table>
                                 </div>
+                            </div>
 
                                 <!-- 버튼 영역 -->
                                 <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
@@ -341,8 +351,8 @@
                 </footer>
             </div>
         </div>
-
-
+    </div>
+</div>
         <!--   Core JS Files   -->
         <script src=" js/core/jquery-3.7.1.min.js"></script>
         <script src=" js/core/popper.min.js"></script>
