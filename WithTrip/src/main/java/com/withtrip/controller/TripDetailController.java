@@ -14,7 +14,8 @@ public class TripDetailController {
 
     private final TripPlanService tripPlanService;
 
-    @GetMapping("/tripPlanInfo")
+
+    @GetMapping("/tripdetail")
     public String getTripDetail(@RequestParam("planId") Long planId, Model model) {
         TripPlanDTO tripPlan = tripPlanService.getTripPlan(planId);
         System.out.println("tripPlan.getPlanId() = " + tripPlan.getPlanId());
